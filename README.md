@@ -6,7 +6,7 @@ You could also refer to the [torch](https://github.com/JamesChuanggg/san-torch) 
 ![image](/VQA.png)
 
 Requirements :
-The code is written in Python and requires [PyTorch](http://pytorch.org/). The preprocssinng code is in Python and Lua, and you need to install NLTK if you want to use [NLTK] (http://www.nltk.org/)to tokenize the question.
+The code is written in Python and requires [PyTorch](http://pytorch.org/). The preprocssinng code is in Python and Lua, and you need to install NLTK if you want to use [NLTK] (http://www.nltk.org/) to tokenize the question.
 
      
 
