@@ -10,7 +10,7 @@ The code is written in Python and requires [PyTorch](http://pytorch.org/). The p
 
      
 
-##Download Dataset
+## Download Dataset
 
 We simply follow the steps provide by [HieCoAttenVQA](https://github.com/jiasenlu/HieCoAttenVQA) to prepare VQA data. The first thing you need to do is to download the data and do some preprocessing. Head over to the data/ folder and run
 
@@ -21,7 +21,7 @@ $ python vqa_preprocess.py --download 1 --split 1
 
 `--download Ture` means you choose to download the VQA data from the [VQA website](http://www.visualqa.org/) and `--split 1` means you use COCO train set to train and validation set to evaluation. `--split 2 ` means you use COCO train+val set to train and test set to evaluate. After this step, it will generate two files under the `data` folder. `vqa_raw_train.json` and `vqa_raw_test.json`
 
-##Download Image Model
+## Download Image Model
 
 We are using [VGG_ILSVRC_19_layers model](https://gist.github.com/ksimonyan/3785162f95cd2d5fee77) and [Deep Residual network implement model](https://github.com/facebook/fb.resnet.torch) by Facebook .
 
@@ -43,7 +43,7 @@ $ th prepro_img_vgg.lua -input_json ../data/vqa_data_prepro.json -image_root /ho
 Before running this make sure you create a new folder called image_model and put the downloaded VGG caffe model ( slong with .prototxt file )and Deep residual net in that folder . For the image root give the path of coco dataset in your system .
 You can change the -gpuid, -backend and -batch_size based on your gpu.
 
-##Train the model
+## Train the model
 
 We have everything ready to train the VQA. Back to the `main` folder and execute 
 
@@ -52,7 +52,7 @@ python train.py --use_gpu <0 or 1> --batch_size <batch size> --epochs <no. of ep
 ```
 you can also change many other options. For a list of all options, see train.py
 
-##Evaluate the model
+## Evaluate the model
 In main folder run
 ```
 python eval.py --use_gpu <0 or 1>
