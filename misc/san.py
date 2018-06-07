@@ -17,9 +17,10 @@ class Attention(nn.Module): # Extend PyTorch's Module class
         self.sf = nn.Softmax()
 
         self.fc11 = nn.Linear(input_size, 768, bias=True)
-        self.fc111 = nn.Linear(768, att_size, bias=True)
+        self.fc111 = nn.Linear(768, 640, bias=True)
         self.fc12 = nn.Linear(input_size, 768, bias=False)
-        self.fc121 = nn.Linear(768, att_size, bias=False)
+        self.fc121 = nn.Linear(768, 640, bias=False)
+        self.linear_second = nn.Linear(640, att_size, bias=False)
         self.fc13 = nn.Linear(att_size, 1, bias=True)
 
         self.fc21 = nn.Linear(input_size, att_size, bias=True)
@@ -34,14 +35,17 @@ class Attention(nn.Module): # Extend PyTorch's Module class
         B = ques_feat.size(0)
 
         # Stack 1
+          x = F.tanh(self.linear_first(outputs))       
+        x = self.linear_second(x)       
+        x = self.softmax(x,1) 
         ques_emb_1 = self.fc11(ques_feat) 
         ques_emb_1 = self.fc111(ques_emb_1) # [batch_size, att_size]
         img_emb_1 = self.fc12(img_feat)
         img_emb_1 = self.fc121(img_emb_1)
 
         h1 = self.tan(ques_emb_1.view(B, 1, self.att_size) + img_emb_1)
-
-        h1_emb = self.fc13(self.dp(h1))
+        h1_emb = self.linear_second(h1) 
+        
         p1 = self.sf(h1_emb.view(-1, self.img_seq_size)).view(B, 1, self.img_seq_size)
 
         # Weighted sum
