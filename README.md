@@ -65,5 +65,5 @@ To gain some dependency between adjacent words within a single sentence, we use 
 After we get the question features and image features , before passing to the stacked attention mechanism the attention features are subdivided getting combine feature through 2 linear layers and then passed to san layer.
 We have also modified the way attention is calculated , it is now a combination of A STRUCTURED SELF -ATTENTIVE SENTENCE EMBEDDING ( There aim was to encode a variable length sentence into a fixed size embedding which they achieve by
 choosing a linear combination of the n-LSTM hidden vectors in H. Computing the linear combination requires the self-attention mechanism. The attention mechanism takes the whole LSTM hidden states H as input, and outputs a vector of weights
-a )
+A )
 & STACKED ATTENTION NETWORKS.
