@@ -58,3 +58,9 @@ In main folder run
 python eval.py --use_gpu <0 or 1>
 ```
 you can also change many other options. For a list of all options, see eval.py
+
+### Modifications
+
+Instead of plain LSTM's , Bidreictional LSTM's are used.
+After we get the question features and image features , before passing to the stacked attention mechanism the attention features are subdivided getting combine feature through 2 linear layers and then passed to san layer.
+
