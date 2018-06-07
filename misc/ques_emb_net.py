@@ -17,7 +17,7 @@ class QuestionEmbedding(nn.Module):
 
         self.LSTM = nn.LSTM(input_size=emb_size, hidden_size=hidden_size,
                 num_layers=num_layers, bias=True,
-                batch_first=True, dropout=dropout)
+                batch_first=True, dropout=dropout,bidirectional=True)
 
         return
 
