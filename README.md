@@ -61,6 +61,6 @@ you can also change many other options. For a list of all options, see eval.py
 
 ### Modifications
 
-Instead of plain LSTM's , Bidreictional LSTM's are used.
+To gain some dependency between adjacent words within a single sentence, we use a bidirectional LSTM to process the sentence.
 After we get the question features and image features , before passing to the stacked attention mechanism the attention features are subdivided getting combine feature through 2 linear layers and then passed to san layer.
-
+We have also modified the way attention is calculated , it is now a combination of A STRUCTURED SELF -ATTENTIVE SENTENCE EMBEDDING & STACKED ATTENTION NETWORKS.
