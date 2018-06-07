@@ -35,9 +35,7 @@ class Attention(nn.Module): # Extend PyTorch's Module class
         B = ques_feat.size(0)
 
         # Stack 1
-          x = F.tanh(self.linear_first(outputs))       
-        x = self.linear_second(x)       
-        x = self.softmax(x,1) 
+        
         ques_emb_1 = self.fc11(ques_feat) 
         ques_emb_1 = self.fc111(ques_emb_1) # [batch_size, att_size]
         img_emb_1 = self.fc12(img_feat)
